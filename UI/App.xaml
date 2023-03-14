@@ -1,0 +1,45 @@
+﻿<Application x:Class="UI.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="Window.Background" Color="{StaticResource DarkGray}"/>
+            <SolidColorBrush x:Key="Window.BorderBrush" Color="{StaticResource Blue}"/>
+            <SolidColorBrush x:Key="Page.Background" Color="{StaticResource Gray.125}"/>
+            <Style x:Key="InnerWindowStyle" TargetType="{x:Type Window}">
+                <Setter Property="Background" Value="{StaticResource Window.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Window.BorderBrush}"/>
+                <Setter Property="Width" Value="600"/>
+                <Setter Property="Height" Value="800"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="VerticalAlignment" Value="Stretch"/>
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                <Setter Property="Padding" Value="8"/>
+                <Setter Property="WindowStyle" Value="None"/>
+                <Setter Property="AllowsTransparency" Value="True"/>
+                <Setter Property="BorderThickness" Value="4"/>
+                <Setter Property="ResizeMode" Value="NoResize"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Window}">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="32" SnapsToDevicePixels="true">
+                                <ContentPresenter Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Colors.xaml"/>
+                <ResourceDictionary Source="/Resources/Templates/BorderStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Templates/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Templates/ComboBoxStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Templates/ComboBoxItemStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Templates/LabelStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Templates/ListViewStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Templates/ListViewItemStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Templates/TextBlockStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Templates/TextBoxStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

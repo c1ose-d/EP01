@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="Accent.BorderBrush" Color="{StaticResource Blue}"/>
+    <Style x:Key="AccentStyle" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="{StaticResource Accent.BorderBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Margin" Value="8,0"/>
+        <Setter Property="Padding" Value="4"/>
+    </Style>
+    <SolidColorBrush x:Key="Spliter.BorderBrush" Color="{StaticResource Blue}"/>
+    <Style x:Key="SpliterStyle" TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="{StaticResource Spliter.BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Width" Value="1"/>
+        <Setter Property="Margin" Value="16,4"/>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Accountant_Icon.png" />
+    <None Remove="Resources\Administrator_Icon.png" />
+    <None Remove="Resources\MainWindow_Icon.png" />
+    <None Remove="Resources\SignIn_Icon.png" />
+    <None Remove="Resources\Technician_Icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Database.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Accountant_Icon.png" />
+    <Resource Include="Resources\Administrator_Icon.png" />
+    <Resource Include="Resources\MainWindow_Icon.png" />
+    <Resource Include="Resources\SignIn_Icon.png" />
+    <Resource Include="Resources\Technician_Icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Database" />
+    <Using Include="Database.Tables" />
+    <Using Include="Microsoft.EntityFrameworkCore" />
+    <Using Include="System.Collections.ObjectModel" />
+    <Using Include="System.Diagnostics" />
+    <Using Include="System.IO" />
+    <Using Include="System.Windows" />
+    <Using Include="System.Windows.Controls" />
+    <Using Include="System.Windows.Input" />
+    <Using Include="System.Windows.Media" />
+    <Using Include="System.Windows.Media.Imaging" />
+    <Using Include="System.Windows.Navigation" />
+    <Using Include="UI.Pages" />
+    <Using Include="UI.Pages.InnerWindows" />
+    <Using Include="UI.Properties.Resources">
+      <Static>True</Static>
+    </Using>
+    <Using Include="UI.Resources.ResourceConverter">
+      <Static>True</Static>
+    </Using>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

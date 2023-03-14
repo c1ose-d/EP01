@@ -1,0 +1,79 @@
+﻿<Window x:Class="UI.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" Background="{StaticResource Window.Background}" Width="1600" Height="900" MinWidth="1366" MinHeight="768" Icon="/Resources/MainWindow_Icon.png" WindowStyle="None" Title="Лаборатория" WindowState="Maximized" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
+    <Window.Resources>
+        <SolidColorBrush x:Key="DockPanel.Background" Color="{StaticResource Transparent}"/>
+        <SolidColorBrush x:Key="Label.Foreground" Color="{StaticResource White}"/>
+        <SolidColorBrush x:Key="Frame.BorderBrush" Color="{StaticResource Blue}"/>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Background" Color="{StaticResource Transparent}"/>
+        <SolidColorBrush x:Key="Button.Foreground" Color="{StaticResource White}"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="{StaticResource Gray}"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="{StaticResource Gray.50}"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="{StaticResource Transparent}"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="{StaticResource Gray}"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource Button.Background}"/>
+            <Setter Property="Foreground" Value="{StaticResource Button.Foreground}"/>
+            <Setter Property="Width" Value="32"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="KeyboardNavigation.IsTabStop" Value="False"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Background="{StaticResource DockPanel.Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LastChildFill="True"  MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Button x:Name="BackButton" Content="&#xE0C4;" IsEnabled="False" Click="BackButton_Click"/>
+                <Image Width="32" Height="32" Margin="8,0" Source="/Resources/MainWindow_Icon.png"/>
+                <Label Foreground="{StaticResource Label.Foreground}" VerticalAlignment="Center" Margin="8,0" Padding="0" FontSize="24" Content="Лаборатория"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button x:Name="MinimizeButton" Content="&#xE921;" Click="MinimizeButton_Click"/>
+                <Button x:Name="MaximizeButton" Content="&#xE922;" Click="MaximizeButton_Click"/>
+                <Button x:Name="CloseButton" Content="&#xE8BB;" Click="CloseButton_Click"/>
+            </StackPanel>
+        </DockPanel>
+        <Frame x:Name="Frame" BorderBrush="{StaticResource Frame.BorderBrush}" Grid.Row="1" BorderThickness="0,1,0,0" NavigationUIVisibility="Hidden" Navigated="Frame_Navigated"/>
+    </Grid>
+</Window>

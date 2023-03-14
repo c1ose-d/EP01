@@ -1,0 +1,192 @@
+﻿<Page x:Class="UI.Pages.MainPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:DesignWidth="1600" d:DesignHeight="900" Title="MainPage" Loaded="Page_Loaded">
+    <Page.Resources>
+        <SolidColorBrush x:Key="Border.Background" Color="{StaticResource DarkGray}"/>
+        <SolidColorBrush x:Key="Border.BorderBrush" Color="{StaticResource Blue}"/>
+        <Style x:Key="TabButtonFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="TabButton.Background" Color="{StaticResource Transparent}"/>
+        <SolidColorBrush x:Key="TabButton.BorderBrush" Color="{StaticResource Blue}"/>
+        <SolidColorBrush x:Key="TabButton.Foreground" Color="{StaticResource White}"/>
+        <SolidColorBrush x:Key="TabButton.MouseOver.Background" Color="{StaticResource Gray}"/>
+        <SolidColorBrush x:Key="TabButton.MouseOver.BorderBrush" Color="{StaticResource Blue}"/>
+        <SolidColorBrush x:Key="TabButton.MouseOver.Foreground" Color="{StaticResource White}"/>
+        <SolidColorBrush x:Key="TabButton.Pressed.Background" Color="{StaticResource Gray.50}"/>
+        <SolidColorBrush x:Key="TabButton.Pressed.BorderBrush" Color="{StaticResource Blue}"/>
+        <SolidColorBrush x:Key="TabButton.Pressed.Foreground" Color="{StaticResource Blue}"/>
+        <SolidColorBrush x:Key="TabButton.Disabled.Background" Color="{StaticResource Gray.125}"/>
+        <SolidColorBrush x:Key="TabButton.Disabled.BorderBrush" Color="{StaticResource Blue}"/>
+        <SolidColorBrush x:Key="TabButton.Disabled.Foreground" Color="{StaticResource Blue}"/>
+        <Style x:Key="TabButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource TabButton.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TabButton.BorderBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource TabButton.Foreground}"/>
+            <Setter Property="MinWidth" Value="150"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Margin" Value="0,8,0,0"/>
+            <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="BorderThickness" Value="2,4"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource TabButtonFocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="16,64,0,0" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource TabButton.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TabButton.MouseOver.BorderBrush}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource TabButton.MouseOver.Foreground}"/>
+                                <Setter Property="TextElement.FontWeight" TargetName="contentPresenter" Value="Bold"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource TabButton.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TabButton.Pressed.BorderBrush}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource TabButton.Pressed.Foreground}"/>
+                                <Setter Property="TextElement.FontWeight" TargetName="contentPresenter" Value="Bold"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource TabButton.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TabButton.Disabled.BorderBrush}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource TabButton.Disabled.Foreground}"/>
+                                <Setter Property="TextElement.FontWeight" TargetName="contentPresenter" Value="Bold"/>
+                                <Setter Property="BorderThickness" TargetName="border" Value="2,4,2,0"/>
+                                <Setter Property="Padding" Value="8,16,8,8"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="UserButtonFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="UserButton.Brush" Color="{StaticResource Transparent}"/>
+        <Style x:Key="UserButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource UserButton.Brush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource UserButton.Brush}"/>
+            <Setter Property="Foreground" Value="{StaticResource UserButton.Brush}"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource UserButtonFocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource UserButton.Brush}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource UserButton.Brush}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource UserButton.Brush}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource UserButton.Brush}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource UserButton.Brush}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource UserButton.Brush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="64"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="600*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="TabsPanel" Orientation="Horizontal">
+                <Button x:Name="Services" Content="&#xE8A5;" Style="{StaticResource TabButtonStyle}" Click="Services_Click">
+                    <Button.ToolTip>
+                        <ToolTip Background="{x:Null}" BorderBrush="{x:Null}">
+                            <Border Background="{StaticResource Border.Background}" BorderBrush="{StaticResource Border.BorderBrush}" BorderThickness="2" CornerRadius="8">
+                                <Label Margin="4" Content="Услуги" Style="{StaticResource HeaderStyle}"/>
+                            </Border>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="Patients" Content="&#xE716;" Style="{StaticResource TabButtonStyle}" Click="Patients_Click">
+                    <Button.ToolTip>
+                        <ToolTip Background="{x:Null}" BorderBrush="{x:Null}">
+                            <Border Background="{StaticResource Border.Background}" BorderBrush="{StaticResource Border.BorderBrush}" BorderThickness="2" CornerRadius="8">
+                                <Label Margin="4" Content="Пациенты" Style="{StaticResource HeaderStyle}"/>
+                            </Border>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="Orders" Content="&#xE82D;" Style="{StaticResource TabButtonStyle}" Click="Orders_Click">
+                    <Button.ToolTip>
+                        <ToolTip Background="{x:Null}" BorderBrush="{x:Null}">
+                            <Border Background="{StaticResource Border.Background}" BorderBrush="{StaticResource Border.BorderBrush}" BorderThickness="2" CornerRadius="8">
+                                <Label Margin="4" Content="Заказы" Style="{StaticResource HeaderStyle}"/>
+                            </Border>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="InsuranceCompanies" Content="&#xE731;" Style="{StaticResource TabButtonStyle}" Click="InsuranceCompanies_Click">
+                    <Button.ToolTip>
+                        <ToolTip Background="{x:Null}" BorderBrush="{x:Null}">
+                            <Border Background="{StaticResource Border.Background}" BorderBrush="{StaticResource Border.BorderBrush}" BorderThickness="2" CornerRadius="8">
+                                <Label Margin="4" Content="Страховые компании" Style="{StaticResource HeaderStyle}"/>
+                            </Border>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="Administrator" Content="&#xE7EF;" Style="{StaticResource TabButtonStyle}" Click="Administrator_Click">
+                    <Button.ToolTip>
+                        <ToolTip Background="{x:Null}" BorderBrush="{x:Null}">
+                            <Border Background="{StaticResource Border.Background}" BorderBrush="{StaticResource Border.BorderBrush}" BorderThickness="2" CornerRadius="8">
+                                <Label Margin="4" Content="Администрирование" Style="{StaticResource HeaderStyle}"/>
+                            </Border>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </StackPanel>
+            <Border BorderBrush="{StaticResource Border.BorderBrush}" Grid.Column="1" BorderThickness="0,0,0,4">
+                <Grid VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="UserPanel" Style="{StaticResource UserButtonStyle}" Click="UserPanel_Click">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Label x:Name="UserName" Style="{StaticResource TitleStyle}"/>
+                            <Image x:Name="UserImage" Width="32" Height="32" Margin="0,8,16,8" Stretch="Fill"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="SwitchUser" Grid.Column="1" Content="&#xE748;" Style="{StaticResource IconButtonStyle}" Click="SwitchUser_Click"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

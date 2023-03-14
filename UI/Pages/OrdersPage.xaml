@@ -1,0 +1,53 @@
+﻿<Page x:Class="UI.Pages.OrdersPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" Background="{StaticResource Page.Background}" d:DesignWidth="1600" d:DesignHeight="900" Title="OrdersPage" Loaded="Page_Loaded">
+    <Page.Resources>
+        <SolidColorBrush x:Key="Border.Gray.50" Color="{StaticResource Gray.50}"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="1000"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="700*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <Border Background="{StaticResource Border.Gray.50}" Grid.Row="1" Grid.Column="1" CornerRadius="64">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="800"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="500"/>
+                        <ColumnDefinition Width="300"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="Where" Style="{StaticResource InputStyle}" TextChanged="Where_TextChanged"/>
+                    <ComboBox x:Name="OrderBy" Grid.Column="1" SelectedIndex="0" SelectionChanged="OrderBy_SelectionChanged">
+                        <ComboBoxItem Content="По умолчанию"/>
+                        <ComboBoxItem Content="По номеру (А-Я)"/>
+                        <ComboBoxItem Content="По номеру (Я-А)"/>
+                        <ComboBoxItem Content="По дате (А-Я)"/>
+                        <ComboBoxItem Content="По дате (Я-А)"/>
+                    </ComboBox>
+                </Grid>
+                <ListView x:Name="OrdersList" Grid.Row="2" Grid.Column="1"/>
+            </Grid>
+        </Border>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <Button x:Name="Insert" Content="&#xE710;" Style="{StaticResource IconButtonStyle}" Click="Insert_Click"/>
+            <Button x:Name="Open" Content="&#xE7AC;" Style="{StaticResource IconButtonStyle}" Click="Open_Click"/>
+            <Button x:Name="Delete" Content="&#xE74D;" Style="{StaticResource IconButtonStyle}" Click="Delete_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

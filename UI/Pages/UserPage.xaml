@@ -1,0 +1,67 @@
+﻿<Page x:Class="UI.Pages.UserPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" Background="{StaticResource Page.Background}" d:DesignWidth="1600" d:DesignHeight="900" Title="UserPage" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+    <Page.Resources>
+        <SolidColorBrush x:Key="Border.Gray.50" Color="{StaticResource Gray.50}"/>
+        <SolidColorBrush x:Key="Border.DarkGray" Color="{StaticResource DarkGray}"/>
+        <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="{StaticResource Border.DarkGray}"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,8,16,8"/>
+            <Setter Property="CornerRadius" Value="8"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="1000"/>
+            <ColumnDefinition Width="300*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="700"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Background="{StaticResource Border.Gray.50}" Grid.Row="1" Grid.Column="1" CornerRadius="64">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="800"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="UserImage" Width="128" Height="128"/>
+                <Grid Grid.Column="1" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Имя пользователя" Style="{StaticResource HeaderStyle}"/>
+                    <Border Grid.Row="1" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="UserName" Style="{DynamicResource OutputStyle}"/>
+                    </Border>
+                    <Label Grid.Row="2" Content="Пароль" Style="{StaticResource HeaderStyle}"/>
+                    <Border Grid.Row="3" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="Password" Style="{DynamicResource OutputStyle}"/>
+                    </Border>
+                    <Label Grid.Row="4" Content="Должность" Style="{StaticResource HeaderStyle}"/>
+                    <Border Grid.Row="5" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="GroupName" Style="{DynamicResource OutputStyle}"/>
+                    </Border>
+                    <Label x:Name="FullNameLabel" Grid.Row="6" Content="Полное имя" Style="{StaticResource HeaderStyle}"/>
+                    <Border x:Name="FullNameBorder" Grid.Row="7" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="FullName" Style="{DynamicResource OutputStyle}"/>
+                    </Border>
+                    <Label x:Name="LastEnterLabel" Grid.Row="8" Content="Последний вход" Style="{StaticResource HeaderStyle}"/>
+                    <Border x:Name="LastEnterBorder" Grid.Row="9" Style="{StaticResource BorderStyle}">
+                        <TextBlock x:Name="LastEnter" Style="{DynamicResource OutputStyle}"/>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
