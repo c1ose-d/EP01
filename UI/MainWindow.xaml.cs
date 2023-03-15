@@ -26,13 +26,13 @@
         {
             try
             {
-                TitleBarToolTip.StaysOpen = false;
+                TitleBarToolTip.IsOpen = false;
             }
             catch { }
             if (DateTime.Now >= Start.AddMinutes(5))
             {
-                TitleBarToolTip.StaysOpen = true;
-                Message.Content = "Приложение закроется через 3 минуты!";
+                TitleBarToolTip.IsOpen = true;
+                Message.Content = "Приложение закроется через 5 минуты!";
             }
             if (DateTime.Now >= Start.AddMinutes(10))
             {
