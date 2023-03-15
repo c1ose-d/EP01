@@ -137,7 +137,7 @@
                 </Button>
                 <Button x:Name="Patients" Content="&#xE716;" Style="{StaticResource TabButtonStyle}" Click="Patients_Click">
                     <Button.ToolTip>
-                        <ToolTip Background="{x:Null}" BorderBrush="{x:Null}">
+                        <ToolTip x:Name="TitleBarToolTip" Background="{x:Null}" BorderBrush="{x:Null}">
                             <Border Background="{StaticResource Border.Background}" BorderBrush="{StaticResource Border.BorderBrush}" BorderThickness="2" CornerRadius="8">
                                 <Label Margin="4" Content="Пациенты" Style="{StaticResource HeaderStyle}"/>
                             </Border>

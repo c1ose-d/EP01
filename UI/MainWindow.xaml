@@ -62,7 +62,14 @@
             <RowDefinition Height="48"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DockPanel Background="{StaticResource DockPanel.Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LastChildFill="True"  MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
+        <DockPanel x:Name="TitleBar" Background="{StaticResource DockPanel.Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LastChildFill="True"  MouseLeftButtonDown="DockPanel_MouseLeftButtonDown">
+            <DockPanel.ToolTip>
+                <ToolTip x:Name="TitleBarToolTip" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <Border Background="{StaticResource Border.Background}" BorderBrush="{StaticResource Border.BorderBrush}" BorderThickness="2" CornerRadius="8">
+                        <Label x:Name="Message" Margin="4" Style="{StaticResource HeaderStyle}"/>
+                    </Border>
+                </ToolTip>
+            </DockPanel.ToolTip>
             <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Button x:Name="BackButton" Content="&#xE0C4;" IsEnabled="False" Click="BackButton_Click"/>
                 <Image Width="32" Height="32" Margin="8,0" Source="/Resources/MainWindow_Icon.png"/>
